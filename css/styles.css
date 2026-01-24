@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+}
+
+header p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+}
+
+.container {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
+    min-height: calc(100vh - 90px);
+}
+
+/* Body Diagram Section */
+.body-section {
+    flex: 0 0 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toggle-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.toggle-btn {
+    background: white;
+    color: #667eea;
+    border: 2px solid white;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.toggle-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.body-diagram {
+    background: white;
+    border-radius: 24px;
+    padding: 1rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.body-diagram.hidden {
+    display: none;
+}
+
+/* Anatomy image container */
+.anatomy-image-container {
+    position: relative;
+    width: 380px;
+    height: 600px;
+    overflow: hidden;
+}
+
+.anatomy-img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    left: 0;
+    top: 0;
+}
+
+/* Back view shows right portion of the image */
+.back-view .anatomy-img {
+    left: auto;
+    right: 0;
+}
+
+/* Clickable SVG overlay */
+.click-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* Muscle Group Styling */
+.muscle-group {
+    fill: rgba(231, 76, 60, 0);
+    stroke: transparent;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.muscle-group:hover {
+    fill: rgba(231, 76, 60, 0.3);
+    stroke: #e74c3c;
+}
+
+.muscle-group.selected {
+    fill: rgba(231, 76, 60, 0.4);
+    stroke: #c0392b;
+    stroke-width: 3;
+}
+
+/* Info Panel */
+.info-panel {
+    flex: 1;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    overflow-y: auto;
+    max-height: calc(100vh - 140px);
+}
+
+.info-panel.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #95a5a6;
+}
+
+.empty-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    opacity: 0.4;
+}
+
+.info-panel.empty p {
+    font-size: 1.1rem;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+/* Muscle Header */
+.muscle-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.muscle-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.muscle-icon svg {
+    width: 50px;
+    height: 50px;
+}
+
+.muscle-title h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.muscle-title .location {
+    color: #7f8c8d;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Info Sections */
+.info-section {
+    margin-bottom: 2rem;
+}
+
+.info-section h3 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-section h3 .icon {
+    width: 24px;
+    height: 24px;
+    background: #e74c3c;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-section h3 .icon.stretch-icon {
+    background: #27ae60;
+}
+
+.info-section h3 .icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Causes List */
+.causes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem;
+}
+
+.cause-item {
+    background: #fef5f5;
+    border-left: 4px solid #e74c3c;
+    padding: 0.8rem 1rem;
+    border-radius: 0 10px 10px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Stretch Cards */
+.stretches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.stretch-card {
+    background: #f8fffe;
+    border: 2px solid #e8f5e9;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.stretch-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.15);
+    border-color: #27ae60;
+}
+
+.stretch-image {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stretch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: white;
+}
+
+.stretch-image svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+}
+
+.stretch-content {
+    padding: 1.2rem;
+}
+
+.stretch-content h4 {
+    color: #27ae60;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stretch-content p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.stretch-duration {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+}
+
+/* Stretch image text styling */
+.stretch-image text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Scrollbar styling */
+.info-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.info-panel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.info-panel::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.info-panel::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .body-section {
+        flex: none;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .info-panel {
+        max-width: 100%;
+        max-height: none;
+        width: 100%;
+    }
+
+    .anatomy-image-container {
+        width: 320px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .muscle-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stretches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .causes-list {
+        grid-template-columns: 1fr;
+    }
+
+    .anatomy-image-container {
+        width: 280px;
+        height: 440px;
+    }
+}
