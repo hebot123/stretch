@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stretch Helper - Interactive Body Guide</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Stretch Helper</h1>
+        <p>Click on a muscle group to learn about causes of tension and recommended stretches</p>
+    </header>
+
+    <div class="container">
+        <div class="body-section">
+            <div class="toggle-container">
+                <button class="toggle-btn active" id="frontBtn">Front View</button>
+                <button class="toggle-btn" id="backBtn">Back View</button>
+            </div>
+
+            <!-- FRONT VIEW - Using anatomical chart with clickable overlay -->
+            <div class="body-diagram" id="frontView">
+                <div class="anatomy-image-container">
+                    <img src="images/anatomy-front.png" alt="Muscular system - front view" class="anatomy-img" id="frontImg">
+                    <!-- Clickable overlay regions for front view -->
+                    <svg class="click-overlay" viewBox="0 0 280 600">
+                        <!-- Neck front -->
+                        <path class="muscle-group" data-muscle="neck-front" d="M125 70 L155 70 L155 95 L125 95 Z"/>
+                        <!-- Shoulders front -->
+                        <path class="muscle-group" data-muscle="shoulder-front" d="M85 95 L120 95 L115 140 L80 130 Z"/>
+                        <path class="muscle-group" data-muscle="shoulder-front" d="M160 95 L195 95 L200 130 L165 140 Z"/>
+                        <!-- Chest -->
+                        <path class="muscle-group" data-muscle="chest" d="M95 105 L140 95 L140 170 L95 155 Z"/>
+                        <path class="muscle-group" data-muscle="chest" d="M140 95 L185 105 L185 155 L140 170 Z"/>
+                        <!-- Biceps -->
+                        <path class="muscle-group" data-muscle="biceps" d="M70 140 L90 135 L90 200 L70 200 Z"/>
+                        <path class="muscle-group" data-muscle="biceps" d="M190 135 L210 140 L210 200 L190 200 Z"/>
+                        <!-- Forearms -->
+                        <path class="muscle-group" data-muscle="forearms" d="M60 200 L90 200 L85 280 L55 280 Z"/>
+                        <path class="muscle-group" data-muscle="forearms" d="M190 200 L220 200 L225 280 L195 280 Z"/>
+                        <!-- Abdominals -->
+                        <path class="muscle-group" data-muscle="abdominals" d="M115 170 L165 170 L165 280 L115 280 Z"/>
+                        <!-- Hip flexors -->
+                        <path class="muscle-group" data-muscle="hip-flexors" d="M100 280 L120 280 L115 330 L95 320 Z"/>
+                        <path class="muscle-group" data-muscle="hip-flexors" d="M160 280 L180 280 L185 320 L165 330 Z"/>
+                        <!-- Quadriceps -->
+                        <path class="muscle-group" data-muscle="quadriceps" d="M90 330 L130 330 L125 460 L85 460 Z"/>
+                        <path class="muscle-group" data-muscle="quadriceps" d="M150 330 L190 330 L195 460 L155 460 Z"/>
+                        <!-- Shins -->
+                        <path class="muscle-group" data-muscle="shins" d="M95 465 L120 465 L115 550 L90 550 Z"/>
+                        <path class="muscle-group" data-muscle="shins" d="M160 465 L185 465 L190 550 L165 550 Z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- BACK VIEW - Using anatomical chart with clickable overlay -->
+            <div class="body-diagram hidden" id="backView">
+                <div class="anatomy-image-container back-view">
+                    <img src="images/anatomy-back.png" alt="Muscular system - back view" class="anatomy-img" id="backImg">
+                    <!-- Clickable overlay regions for back view -->
+                    <svg class="click-overlay" viewBox="0 0 280 600">
+                        <!-- Neck/Trapezius -->
+                        <path class="muscle-group" data-muscle="trapezius" d="M115 70 L165 70 L175 110 L105 110 Z"/>
+                        <!-- Shoulders back -->
+                        <path class="muscle-group" data-muscle="shoulder-back" d="M80 95 L110 100 L105 145 L75 135 Z"/>
+                        <path class="muscle-group" data-muscle="shoulder-back" d="M170 100 L200 95 L205 135 L175 145 Z"/>
+                        <!-- Upper back -->
+                        <path class="muscle-group" data-muscle="upper-back" d="M95 110 L135 105 L135 180 L95 170 Z"/>
+                        <path class="muscle-group" data-muscle="upper-back" d="M145 105 L185 110 L185 170 L145 180 Z"/>
+                        <!-- Mid back -->
+                        <path class="muscle-group" data-muscle="mid-back" d="M115 110 L165 110 L165 180 L115 180 Z"/>
+                        <!-- Triceps -->
+                        <path class="muscle-group" data-muscle="triceps" d="M65 145 L90 140 L90 210 L65 210 Z"/>
+                        <path class="muscle-group" data-muscle="triceps" d="M190 140 L215 145 L215 210 L190 210 Z"/>
+                        <!-- Forearms back -->
+                        <path class="muscle-group" data-muscle="forearms" d="M55 210 L85 210 L80 290 L50 290 Z"/>
+                        <path class="muscle-group" data-muscle="forearms" d="M195 210 L225 210 L230 290 L200 290 Z"/>
+                        <!-- Lower back -->
+                        <path class="muscle-group" data-muscle="lower-back" d="M105 180 L175 180 L175 290 L105 290 Z"/>
+                        <!-- Glutes -->
+                        <path class="muscle-group" data-muscle="glutes" d="M90 290 L140 290 L140 360 L85 360 Z"/>
+                        <path class="muscle-group" data-muscle="glutes" d="M140 290 L190 290 L195 360 L140 360 Z"/>
+                        <!-- Hamstrings -->
+                        <path class="muscle-group" data-muscle="hamstrings" d="M85 365 L130 365 L125 490 L80 490 Z"/>
+                        <path class="muscle-group" data-muscle="hamstrings" d="M150 365 L195 365 L200 490 L155 490 Z"/>
+                        <!-- Calves -->
+                        <path class="muscle-group" data-muscle="calves" d="M85 495 L125 495 L120 580 L80 580 Z"/>
+                        <path class="muscle-group" data-muscle="calves" d="M155 495 L195 495 L200 580 L160 580 Z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel empty" id="infoPanel">
+            <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+            </svg>
+            <p>Click on any muscle group to see common causes of tension and recommended stretches.</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
