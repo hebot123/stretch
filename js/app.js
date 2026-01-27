@@ -1,5 +1,5 @@
 // Stretch images - place your images in images/stretches/ folder
-// The app will look for: images/stretches/{image-id}.jpg
+// The app will look for: images/stretches/{image-id}.png
 const STRETCH_IMAGE_PATH = 'images/stretches/';
 
 // Muscle data with causes and stretches
@@ -551,12 +551,12 @@ function showEmptyPanel() {
 
 // Get stretch image HTML - uses local image or placeholder
 function getStretchImageHTML(imageId, stretchName) {
-    const imagePath = `${STRETCH_IMAGE_PATH}${imageId}.jpg`;
+    const imagePath = `${STRETCH_IMAGE_PATH}${imageId}.png`;
 
     return `
         <img src="${imagePath}"
              alt="${stretchName}"
-             onerror="this.parentElement.innerHTML='<div class=\\'stretch-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.5\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><circle cx=\\'8.5\\' cy=\\'8.5\\' r=\\'1.5\\'/><path d=\\'m21 15-5-5L5 21\\'/></svg><span>${imageId}.jpg</span></div>'">
+             onerror="this.parentElement.innerHTML='<div class=\\'stretch-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.5\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><circle cx=\\'8.5\\' cy=\\'8.5\\' r=\\'1.5\\'/><path d=\\'m21 15-5-5L5 21\\'/></svg><span>${imageId}.png</span></div>'">
     `;
 }
 
