@@ -19,74 +19,74 @@
                 <button class="toggle-btn" id="backBtn">Back View</button>
             </div>
 
-            <!-- FRONT VIEW - Using anatomical chart with clickable overlay -->
+            <!-- FRONT VIEW -->
             <div class="body-diagram" id="frontView">
                 <div class="anatomy-image-container">
-                    <img src="images/anatomy-front.png" alt="Muscular system - front view" class="anatomy-img" id="frontImg">
-                    <!-- Clickable overlay regions for front view -->
-                    <svg class="click-overlay" viewBox="0 0 280 600">
-                        <!-- Neck front -->
-                        <path class="muscle-group" data-muscle="neck-front" d="M125 70 L155 70 L155 95 L125 95 Z"/>
-                        <!-- Shoulders front -->
-                        <path class="muscle-group" data-muscle="shoulder-front" d="M85 95 L120 95 L115 140 L80 130 Z"/>
-                        <path class="muscle-group" data-muscle="shoulder-front" d="M160 95 L195 95 L200 130 L165 140 Z"/>
+                    <img src="images/front.png" alt="Muscular system - front view" class="anatomy-img">
+                    <!-- Clickable overlay regions mapped to FRONT body in image -->
+                    <svg class="click-overlay" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <!-- Neck -->
+                        <rect class="muscle-group" data-muscle="neck-front" x="45" y="14" width="10" height="7"/>
+                        <!-- Shoulders (Deltoids) -->
+                        <polygon class="muscle-group" data-muscle="shoulder-front" points="29,19.5 41,19 43,27 39,30 30,28"/>
+                        <polygon class="muscle-group" data-muscle="shoulder-front" points="59,19 71,19.5 70,28 60,30 57,27"/>
                         <!-- Chest -->
-                        <path class="muscle-group" data-muscle="chest" d="M95 105 L140 95 L140 170 L95 155 Z"/>
-                        <path class="muscle-group" data-muscle="chest" d="M140 95 L185 105 L185 155 L140 170 Z"/>
+                        <polygon class="muscle-group" data-muscle="chest" points="37,21.5 49.5,21.5 49.5,33 37,33"/>
+                        <polygon class="muscle-group" data-muscle="chest" points="50.5,21.5 63,21.5 63,33 50.5,33"/>
                         <!-- Biceps -->
-                        <path class="muscle-group" data-muscle="biceps" d="M70 140 L90 135 L90 200 L70 200 Z"/>
-                        <path class="muscle-group" data-muscle="biceps" d="M190 135 L210 140 L210 200 L190 200 Z"/>
+                        <rect class="muscle-group" data-muscle="biceps" x="30.5" y="25.5" width="6.5" height="9"/>
+                        <rect class="muscle-group" data-muscle="biceps" x="63" y="25.5" width="6.5" height="9"/>
                         <!-- Forearms -->
-                        <path class="muscle-group" data-muscle="forearms" d="M60 200 L90 200 L85 280 L55 280 Z"/>
-                        <path class="muscle-group" data-muscle="forearms" d="M190 200 L220 200 L225 280 L195 280 Z"/>
+                        <rect class="muscle-group" data-muscle="forearms" x="24" y="37" width="9" height="9"/>
+                        <rect class="muscle-group" data-muscle="forearms" x="67" y="37" width="9" height="9"/>
                         <!-- Abdominals -->
-                        <path class="muscle-group" data-muscle="abdominals" d="M115 170 L165 170 L165 280 L115 280 Z"/>
-                        <!-- Hip flexors -->
-                        <path class="muscle-group" data-muscle="hip-flexors" d="M100 280 L120 280 L115 330 L95 320 Z"/>
-                        <path class="muscle-group" data-muscle="hip-flexors" d="M160 280 L180 280 L185 320 L165 330 Z"/>
+                        <rect class="muscle-group" data-muscle="abdominals" x="43.5" y="29.5" width="13" height="15.5"/>
+                        <!-- Hip Flexors -->
+                        <polygon class="muscle-group" data-muscle="hip-flexors" points="34.8,42 42.8,42 41.5,47 34.8,46"/>
+                        <polygon class="muscle-group" data-muscle="hip-flexors" points="57.2,42 65.2,42 65.2,46 58.5,47"/>
                         <!-- Quadriceps -->
-                        <path class="muscle-group" data-muscle="quadriceps" d="M90 330 L130 330 L125 460 L85 460 Z"/>
-                        <path class="muscle-group" data-muscle="quadriceps" d="M150 330 L190 330 L195 460 L155 460 Z"/>
-                        <!-- Shins -->
-                        <path class="muscle-group" data-muscle="shins" d="M95 465 L120 465 L115 550 L90 550 Z"/>
-                        <path class="muscle-group" data-muscle="shins" d="M160 465 L185 465 L190 550 L165 550 Z"/>
+                        <rect class="muscle-group" data-muscle="quadriceps" x="36.3" y="43.8" width="10.6" height="18.3"/>
+                        <rect class="muscle-group" data-muscle="quadriceps" x="53.2" y="43.8" width="10.6" height="18.3"/>
+                        <!-- Shins (Tibialis Anterior) -->
+                        <rect class="muscle-group" data-muscle="shins" x="36.0" y="67.6" width="5.2" height="15"/>
+                        <rect class="muscle-group" data-muscle="shins" x="58.8" y="67.6" width="5.2" height="15"/>
                     </svg>
                 </div>
             </div>
 
-            <!-- BACK VIEW - Using anatomical chart with clickable overlay -->
+            <!-- BACK VIEW -->
             <div class="body-diagram hidden" id="backView">
-                <div class="anatomy-image-container back-view">
-                    <img src="images/anatomy-back.png" alt="Muscular system - back view" class="anatomy-img" id="backImg">
-                    <!-- Clickable overlay regions for back view -->
-                    <svg class="click-overlay" viewBox="0 0 280 600">
-                        <!-- Neck/Trapezius -->
-                        <path class="muscle-group" data-muscle="trapezius" d="M115 70 L165 70 L175 110 L105 110 Z"/>
-                        <!-- Shoulders back -->
-                        <path class="muscle-group" data-muscle="shoulder-back" d="M80 95 L110 100 L105 145 L75 135 Z"/>
-                        <path class="muscle-group" data-muscle="shoulder-back" d="M170 100 L200 95 L205 135 L175 145 Z"/>
-                        <!-- Upper back -->
-                        <path class="muscle-group" data-muscle="upper-back" d="M95 110 L135 105 L135 180 L95 170 Z"/>
-                        <path class="muscle-group" data-muscle="upper-back" d="M145 105 L185 110 L185 170 L145 180 Z"/>
+                <div class="anatomy-image-container">
+                    <img src="images/back.png" alt="Muscular system - back view" class="anatomy-img">
+                    <!-- Clickable overlay regions mapped to BACK body in image -->
+                    <svg class="click-overlay" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <!-- Trapezius / Neck -->
+                        <polygon class="muscle-group" data-muscle="trapezius" points="37,12.5 63,12.5 70,22 30,22"/>
+                        <!-- Shoulders (Posterior Deltoid) -->
+                        <polygon class="muscle-group" data-muscle="shoulder-back" points="28.5,19.5 38.5,19.5 40,26 35,28 27,25"/>
+                        <polygon class="muscle-group" data-muscle="shoulder-back" points="61.5,19.5 71.5,19.5 73,25 65,28 60,26"/>
+                        <!-- Upper back (Scapular / Rhomboid region) -->
+                        <polygon class="muscle-group" data-muscle="upper-back" points="36,23 49,23 49,33 36,31"/>
+                        <polygon class="muscle-group" data-muscle="upper-back" points="51,23 64,23 64,31 51,33"/>
                         <!-- Mid back -->
-                        <path class="muscle-group" data-muscle="mid-back" d="M115 110 L165 110 L165 180 L115 180 Z"/>
+                        <rect class="muscle-group" data-muscle="mid-back" x="40.7" y="30.3" width="18.3" height="6.2"/>
                         <!-- Triceps -->
-                        <path class="muscle-group" data-muscle="triceps" d="M65 145 L90 140 L90 210 L65 210 Z"/>
-                        <path class="muscle-group" data-muscle="triceps" d="M190 140 L215 145 L215 210 L190 210 Z"/>
-                        <!-- Forearms back -->
-                        <path class="muscle-group" data-muscle="forearms" d="M55 210 L85 210 L80 290 L50 290 Z"/>
-                        <path class="muscle-group" data-muscle="forearms" d="M195 210 L225 210 L230 290 L200 290 Z"/>
+                        <rect class="muscle-group" data-muscle="triceps" x="26.5" y="25.7" width="8.2" height="9.4"/>
+                        <rect class="muscle-group" data-muscle="triceps" x="65.1" y="25.7" width="8.2" height="9.4"/>
+                        <!-- Forearms -->
+                        <rect class="muscle-group" data-muscle="forearms" x="22.7" y="37.8" width="6.8" height="7.7"/>
+                        <rect class="muscle-group" data-muscle="forearms" x="70.3" y="37.8" width="6.9" height="7.7"/>
                         <!-- Lower back -->
-                        <path class="muscle-group" data-muscle="lower-back" d="M105 180 L175 180 L175 290 L105 290 Z"/>
+                        <rect class="muscle-group" data-muscle="lower-back" x="42.9" y="35.2" width="14.6" height="7.0"/>
                         <!-- Glutes -->
-                        <path class="muscle-group" data-muscle="glutes" d="M90 290 L140 290 L140 360 L85 360 Z"/>
-                        <path class="muscle-group" data-muscle="glutes" d="M140 290 L190 290 L195 360 L140 360 Z"/>
+                        <rect class="muscle-group" data-muscle="glutes" x="35.4" y="45.6" width="14.4" height="9.1"/>
+                        <rect class="muscle-group" data-muscle="glutes" x="50.0" y="45.6" width="14.4" height="9.1"/>
                         <!-- Hamstrings -->
-                        <path class="muscle-group" data-muscle="hamstrings" d="M85 365 L130 365 L125 490 L80 490 Z"/>
-                        <path class="muscle-group" data-muscle="hamstrings" d="M150 365 L195 365 L200 490 L155 490 Z"/>
+                        <rect class="muscle-group" data-muscle="hamstrings" x="34.1" y="54.7" width="14.4" height="18.2"/>
+                        <rect class="muscle-group" data-muscle="hamstrings" x="51.5" y="54.7" width="14.4" height="18.2"/>
                         <!-- Calves -->
-                        <path class="muscle-group" data-muscle="calves" d="M85 495 L125 495 L120 580 L80 580 Z"/>
-                        <path class="muscle-group" data-muscle="calves" d="M155 495 L195 495 L200 580 L160 580 Z"/>
+                        <rect class="muscle-group" data-muscle="calves" x="35.0" y="66.4" width="10.0" height="18.4"/>
+                        <rect class="muscle-group" data-muscle="calves" x="55.0" y="66.4" width="10.0" height="18.4"/>
                     </svg>
                 </div>
             </div>
