@@ -1,90 +1,6 @@
-// Stretch image URLs from spotebi.com and other sources
-const stretchImageUrls = {
-    // Neck
-    'lateral-neck': 'images/neck-stretch.jpg',
-    'chin-tuck': 'images/neck-stretch.jpg',
-    'scm-stretch': 'images/neck-stretch.jpg',
-    'upper-trap': 'images/neck-stretch.jpg',
-    'neck-rotation': 'images/neck-stretch.jpg',
-    'suboccipital': 'images/neck-stretch.jpg',
-
-    // Shoulders
-    'doorway-stretch': 'images/chest-stretch.jpg',
-    'behind-back': 'images/chest-stretch.jpg',
-    'wall-chest': 'images/chest-stretch.jpg',
-    'cross-body': 'images/shoulder-stretch.jpg',
-    'thread-needle': 'images/upper-back-stretch.jpg',
-    'eagle-arms': 'images/shoulder-stretch.jpg',
-
-    // Chest
-    'corner-stretch': 'images/chest-stretch.jpg',
-    'floor-angels': 'images/floor-angels.jpg',
-    'foam-roller-chest': 'images/foam-roller-chest.jpg',
-
-    // Arms
-    'wall-bicep': 'images/biceps-stretch.jpg',
-    'seated-bicep': 'images/biceps-stretch.jpg',
-    'doorway-bicep': 'images/biceps-stretch.jpg',
-    'overhead-tricep': 'images/triceps-stretch.jpg',
-    'wall-tricep': 'images/triceps-stretch.jpg',
-    'towel-tricep': 'images/triceps-stretch.jpg',
-
-    // Forearms
-    'wrist-flexor': 'images/wrist-stretch.jpg',
-    'wrist-extensor': 'images/wrist-stretch.jpg',
-    'prayer-stretch': 'images/wrist-stretch.jpg',
-
-    // Core
-    'cobra-pose': 'images/cobra-stretch.jpg',
-    'cat-cow': 'images/cat-stretch.jpg',
-    'side-bend': 'images/side-bend.jpg',
-
-    // Hips
-    'kneeling-hip-flexor': 'images/hip-flexor-stretch.jpg',
-    'couch-stretch': 'images/hip-flexor-stretch.jpg',
-    'low-lunge': 'images/low-lunge.jpg',
-
-    // Legs - Quads
-    'standing-quad': 'images/quad-stretch.jpg',
-    'prone-quad': 'images/quad-stretch.jpg',
-    'kneeling-quad': 'images/quad-stretch.jpg',
-
-    // Glutes
-    'pigeon-pose': 'images/pigeon-pose.jpg',
-    'figure-four': 'images/glute-stretch.jpg',
-    'seated-piriformis': 'images/seated-piriformis.jpg',
-
-    // Hamstrings
-    'standing-hamstring': 'images/hamstring-stretch.jpg',
-    'lying-hamstring': 'images/hamstring-stretch.jpg',
-    'forward-fold': 'images/hamstring-stretch.jpg',
-
-    // Calves
-    'wall-calf': 'images/calf-stretch.jpg',
-    'soleus-stretch': 'images/calf-stretch.jpg',
-    'step-stretch': 'images/calf-stretch.jpg',
-
-    // Back
-    'cat-stretch': 'images/cat-stretch.jpg',
-    'seated-twist': 'images/seated-twist.jpg',
-    'hands-forward': 'images/upper-back-stretch.jpg',
-    'thoracic-extension': 'images/upper-back-stretch.jpg',
-    'open-book': 'images/upper-back-stretch.jpg',
-    'childs-pose': 'images/childs-pose.jpg',
-
-    // Lower back
-    'knee-to-chest': 'images/knee-to-chest.jpg',
-    'supine-twist': 'images/supine-twist.jpg',
-
-    // Shins
-    'kneeling-shin': 'images/calf-stretch.jpg',
-    'toe-drag': 'images/calf-stretch.jpg',
-    'heel-walk': 'images/calf-stretch.jpg',
-
-    // Levator scapulae
-    'levator-scap': 'images/neck-stretch.jpg',
-    'shoulder-shrugs': 'images/shoulder-stretch.jpg'
-};
+// Stretch images - place your images in images/stretches/ folder
+// The app will look for: images/stretches/{image-id}.jpg
+const STRETCH_IMAGE_PATH = 'images/stretches/';
 
 // Muscle data with causes and stretches
 const muscleData = {
@@ -99,24 +15,9 @@ const muscleData = {
             'Holding phone between ear and shoulder'
         ],
         stretches: [
-            {
-                name: 'Lateral Neck Stretch',
-                duration: '30 sec each side',
-                description: 'Sit tall, drop right ear toward right shoulder. Gently press with right hand for deeper stretch.',
-                image: 'lateral-neck'
-            },
-            {
-                name: 'Chin Tuck',
-                duration: '10 reps',
-                description: 'Sit tall, pull chin straight back creating a "double chin". Hold 5 seconds, repeat.',
-                image: 'chin-tuck'
-            },
-            {
-                name: 'SCM Stretch',
-                duration: '20-30 sec each side',
-                description: 'Turn head 45 degrees to one side, then tilt chin up. Feel stretch along front of neck.',
-                image: 'scm-stretch'
-            }
+            { name: 'Lateral Neck Stretch', duration: '30 sec each side', description: 'Sit tall, drop right ear toward right shoulder. Gently press with right hand for deeper stretch.', image: 'lateral-neck-stretch' },
+            { name: 'Chin Tuck', duration: '10 reps', description: 'Sit tall, pull chin straight back creating a "double chin". Hold 5 seconds, repeat.', image: 'chin-tuck' },
+            { name: 'SCM Stretch', duration: '20-30 sec each side', description: 'Turn head 45 degrees to one side, then tilt chin up. Feel stretch along front of neck.', image: 'scm-stretch' }
         ]
     },
     'trapezius': {
@@ -130,24 +31,170 @@ const muscleData = {
             'Extended phone or computer use'
         ],
         stretches: [
-            {
-                name: 'Upper Trap Stretch',
-                duration: '30 sec each side',
-                description: 'Anchor right hand under chair. Tilt head left, bringing ear toward shoulder. Add gentle pressure with left hand.',
-                image: 'upper-trap'
-            },
-            {
-                name: 'Shoulder Shrugs',
-                duration: '10 reps',
-                description: 'Raise shoulders to ears, hold 5 seconds, then release completely. Helps release chronic tension.',
-                image: 'shoulder-shrugs'
-            },
-            {
-                name: 'Levator Scapulae Stretch',
-                duration: '30 sec each side',
-                description: 'Look down toward armpit, gently pull head with hand. Targets the muscle connecting neck to shoulder blade.',
-                image: 'levator-scap'
-            }
+            { name: 'Upper Trap Stretch', duration: '30 sec each side', description: 'Anchor right hand under chair. Tilt head left, bringing ear toward shoulder.', image: 'upper-trap-stretch' },
+            { name: 'Shoulder Shrugs', duration: '10 reps', description: 'Raise shoulders to ears, hold 5 seconds, then release completely.', image: 'shoulder-shrugs' },
+            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Look down toward armpit, gently pull head with hand.', image: 'levator-scap-stretch' }
+        ]
+    },
+
+    'upper-traps': {
+        name: 'Upper Traps (Left/Right)',
+        location: 'Top of shoulders into the neck (upper trapezius)',
+        causes: [
+            'Stress-driven shoulder shrugging',
+            'Desk work / laptop posture',
+            'Tense arm swing while running',
+            'Carrying bags on one shoulder',
+            'Cold weather hunching'
+        ],
+        stretches: [
+            { name: 'Upper Trap Stretch', duration: '30 sec each side', description: 'Anchor the hand on the painful side, gently tilt head away. Keep shoulder down.', image: 'upper-trap-stretch' },
+            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Look down toward armpit, gently pull head forward/diagonal.', image: 'levator-scap-stretch' },
+            { name: 'Wall Angels (Mobility)', duration: '8-10 reps', description: 'Back to wall, ribs down. Slide arms up/down to open chest and upper back.', image: 'wall-angels' }
+        ]
+    },
+    'levator-scapulae': {
+        name: 'Levator Scapulae',
+        location: 'Side/back of neck to the top inner shoulder blade',
+        causes: [
+            'Forward head posture',
+            'Running with tense shoulders',
+            'Sleeping with head rotated',
+            'Frequent looking down at phone',
+            'Upper trap overuse'
+        ],
+        stretches: [
+            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Turn head 45° away, then look down. Gently pull head forward.', image: 'levator-scap-stretch' },
+            { name: 'Chin Tuck', duration: '10 reps', description: 'Slide chin straight back, hold 3-5 seconds. Don’t tilt head.', image: 'chin-tuck' },
+            { name: 'Thread-the-Needle', duration: '30 sec each side', description: 'On all fours, reach arm under and rotate upper back/neck gently.', image: 'thread-the-needle' }
+        ]
+    },
+    'rhomboids': {
+        name: 'Rhomboids / Mid Traps',
+        location: 'Between shoulder blades (posture and scapular control)',
+        causes: [
+            'Slouching or rounded shoulders',
+            'Weak scapular stabilizers',
+            'High mileage with poor arm swing mechanics',
+            'Overreaching at desk',
+            'Breathing shallowly (tight upper back)'
+        ],
+        stretches: [
+            { name: 'Hands Clasped Forward', duration: '20-30 sec', description: 'Clasp hands and push palms away to spread shoulder blades.', image: 'hands-clasped-forward' },
+            { name: 'Open Book Stretch', duration: '30 sec each side', description: 'Side-lying rotation to open chest and upper back.', image: 'open-book-stretch' },
+            { name: 'Foam Roll Upper Back', duration: '60-90 sec', description: 'Slow rolls between shoulder blades; pause on tight spots.', image: 'thoracic-foam-roll' }
+        ]
+    },
+    'lats': {
+        name: 'Latissimus Dorsi (Lats)',
+        location: 'Side of mid-back under the armpit',
+        causes: [
+            'Tight arm swing / reaching forward while running',
+            'Pulling exercises without mobility',
+            'Desk posture with shoulders internally rotated',
+            'Limited thoracic extension',
+            'Overhead work'
+        ],
+        stretches: [
+            { name: 'Child’s Pose Side Reach', duration: '30 sec each side', description: 'In child’s pose, walk hands to one side to stretch opposite lat.', image: 'childs-pose-side-reach' },
+            { name: 'Wall Lat Stretch', duration: '30 sec each side', description: 'Hands on wall, hinge hips back, drop chest; bias to one side.', image: 'wall-lat-stretch' },
+            { name: 'Doorway Lat Stretch', duration: '30 sec each side', description: 'Hold doorway overhead, sit hips back and lean away.', image: 'doorway-lat-stretch' }
+        ]
+    },
+    'thoracic-erectors': {
+        name: 'Mid Back (Thoracic Erectors)',
+        location: 'Muscles along the thoracic spine (mid-back)',
+        causes: [
+            'Stiff thoracic spine from sitting',
+            'Shallow breathing / rib stiffness',
+            'Long runs with fatigued posture',
+            'Backpack/carrying loads',
+            'Poor upper-back mobility'
+        ],
+        stretches: [
+            { name: 'Thoracic Extension', duration: '30 sec per spot', description: 'Foam roller under mid-back. Support head, extend gently.', image: 'thoracic-extension' },
+            { name: 'Open Book Stretch', duration: '30 sec each side', description: 'Rotate upper body open to improve thoracic mobility.', image: 'open-book-stretch' },
+            { name: "Child's Pose", duration: '45-60 sec', description: 'Sink hips back and breathe into mid-back.', image: 'childs-pose' }
+        ]
+    },
+    'ql': {
+        name: 'Quadratus Lumborum (QL)',
+        location: 'Side of low back above the hip (often one-sided in runners)',
+        causes: [
+            'Uneven stride / pelvic drop (hip weakness)',
+            'Running on cambered roads',
+            'Weak glute medius',
+            'Tight hip flexors / poor core control',
+            'Carrying kids/bags on one side'
+        ],
+        stretches: [
+            { name: 'Standing Side Bend', duration: '30 sec each side', description: 'Reach arm overhead and bend away from the painful side.', image: 'standing-side-bend' },
+            { name: "Child's Pose Side Walk", duration: '30 sec each side', description: 'From child’s pose, walk hands to one side to stretch opposite QL.', image: 'childs-pose-side-walk' },
+            { name: 'Supine Twist', duration: '30-45 sec each side', description: 'Let knees fall to one side; breathe into the side of low back.', image: 'supine-twist' }
+        ]
+    },
+    'lumbar-erectors': {
+        name: 'Low Back (Lumbar Erectors)',
+        location: 'Muscles along the lumbar spine',
+        causes: [
+            'Overstriding or leaning back while running',
+            'Weak core / glutes causing lumbar compensation',
+            'Tight hip flexors',
+            'Prolonged sitting',
+            'Poor lifting mechanics'
+        ],
+        stretches: [
+            { name: 'Knee-to-Chest Stretch', duration: '30-45 sec', description: 'Lie on back, pull knees toward chest and breathe.', image: 'knee-to-chest' },
+            { name: 'Supine Twist', duration: '30-45 sec each side', description: 'Rotate knees side to side to release low back.', image: 'supine-twist' },
+            { name: 'Cat-Cow', duration: '8-10 cycles', description: 'Gentle spinal flex/extend to unload lumbar area.', image: 'cat-cow-stretch' }
+        ]
+    },
+    'glute-medius': {
+        name: 'Glute Medius (Hip Stabilizer)',
+        location: 'Upper outer butt/hip (key runner stabilizer)',
+        causes: [
+            'High mileage with weak hip stability',
+            'Excessive hip drop (Trendelenburg)',
+            'Running on uneven surfaces',
+            'Tight TFL/IT band',
+            'Too much sitting'
+        ],
+        stretches: [
+            { name: 'Figure-4 Stretch', duration: '30-45 sec each side', description: 'Cross ankle over opposite knee and pull in.', image: 'figure-four-stretch' },
+            { name: 'Pigeon Pose', duration: '60-90 sec each side', description: 'Front shin angled, back leg long; keep hips square.', image: 'pigeon-pose' },
+            { name: 'Standing Hip Hike (Activation)', duration: '10 reps each side', description: 'Stand on a step, drop and lift pelvis using the stance hip.', image: 'hip-hike' }
+        ]
+    },
+    'it-band': {
+        name: 'IT Band / TFL Region',
+        location: 'Outer thigh and hip (often irritated in runners)',
+        causes: [
+            'Sudden increase in mileage',
+            'Downhill running',
+            'Weak glute medius / hip control',
+            'Overstriding or narrow step width',
+            'Tight TFL and hip flexors'
+        ],
+        stretches: [
+            { name: 'Standing IT Band Stretch', duration: '30 sec each side', description: 'Cross painful-side leg behind, lean away and reach overhead.', image: 'standing-it-band-stretch' },
+            { name: 'Side-Lying Quad/TFL Stretch', duration: '30 sec each side', description: 'Grab top ankle behind you; keep hip stacked.', image: 'side-lying-quad-stretch' },
+            { name: 'Hip Flexor Stretch', duration: '30-45 sec each side', description: 'Kneeling lunge, tuck pelvis under; feel front/outer hip.', image: 'kneeling-hip-flexor' }
+        ]
+    },
+    'achilles': {
+        name: 'Achilles / Lower Calf',
+        location: 'Tendon just above the heel',
+        causes: [
+            'Rapid mileage increase',
+            'Hill sprints or speedwork',
+            'Stiff ankles / tight calves',
+            'Worn shoes or low heel drop switch',
+            'Too little recovery between runs'
+        ],
+        stretches: [
+            { name: 'Soleus Stretch', duration: '30 sec each side', description: 'Wall calf stretch with back knee bent to target lower calf/Achilles.', image: 'soleus-stretch' },
+            { name: 'Step Calf Stretch', duration: '30-45 sec each side', description: 'Heel off step, lower slowly and hold. Don’t bounce.', image: 'step-calf-stretch' },
+            { name: 'Eccentric Heel Drops', duration: '2 x 10 each side', description: 'Rise with both feet, lower slowly on one. Classic Achilles rehab move.', image: 'eccentric-heel-drops' }
         ]
     },
     'shoulder-front': {
@@ -161,24 +208,9 @@ const muscleData = {
             'Carrying items in front of body'
         ],
         stretches: [
-            {
-                name: 'Doorway Stretch',
-                duration: '30-45 sec',
-                description: 'Stand in doorway, place forearm on frame with elbow at 90°. Step forward until you feel stretch in front of shoulder.',
-                image: 'doorway-stretch'
-            },
-            {
-                name: 'Behind Back Clasp',
-                duration: '20-30 sec',
-                description: 'Clasp hands behind back, straighten arms and lift slightly while opening chest.',
-                image: 'behind-back'
-            },
-            {
-                name: 'Wall Chest Stretch',
-                duration: '30 sec each side',
-                description: 'Place palm on wall at shoulder height. Turn body away from wall until stretch is felt across chest.',
-                image: 'wall-chest'
-            }
+            { name: 'Doorway Stretch', duration: '30-45 sec', description: 'Stand in doorway, place forearm on frame with elbow at 90°. Step forward.', image: 'doorway-chest-stretch' },
+            { name: 'Behind Back Clasp', duration: '20-30 sec', description: 'Clasp hands behind back, straighten arms and lift slightly while opening chest.', image: 'behind-back-stretch' },
+            { name: 'Wall Chest Stretch', duration: '30 sec each side', description: 'Place palm on wall at shoulder height. Turn body away until stretch is felt.', image: 'wall-chest-stretch' }
         ]
     },
     'shoulder-back': {
@@ -192,24 +224,9 @@ const muscleData = {
             'Throwing sports'
         ],
         stretches: [
-            {
-                name: 'Cross-Body Shoulder Stretch',
-                duration: '30 sec each side',
-                description: 'Bring right arm across chest. Use left hand to gently pull arm closer to body.',
-                image: 'cross-body'
-            },
-            {
-                name: 'Thread the Needle',
-                duration: '30 sec each side',
-                description: 'Start on hands and knees. Slide right arm under body, lowering shoulder to floor.',
-                image: 'thread-needle'
-            },
-            {
-                name: 'Eagle Arms',
-                duration: '20-30 sec each side',
-                description: 'Cross elbows, wrap forearms, press palms together. Lift elbows while keeping shoulders down.',
-                image: 'eagle-arms'
-            }
+            { name: 'Cross-Body Shoulder Stretch', duration: '30 sec each side', description: 'Bring right arm across chest. Use left hand to gently pull arm closer.', image: 'cross-body-stretch' },
+            { name: 'Thread the Needle', duration: '30 sec each side', description: 'Start on hands and knees. Slide right arm under body, lowering shoulder to floor.', image: 'thread-the-needle' },
+            { name: 'Eagle Arms', duration: '20-30 sec each side', description: 'Cross elbows, wrap forearms, press palms together. Lift elbows.', image: 'eagle-arms' }
         ]
     },
     'chest': {
@@ -223,24 +240,9 @@ const muscleData = {
             'Anxiety and protective posturing'
         ],
         stretches: [
-            {
-                name: 'Corner Stretch',
-                duration: '30-45 sec',
-                description: 'Place both forearms on corner walls. Lean forward until stretch is felt across chest.',
-                image: 'corner-stretch'
-            },
-            {
-                name: 'Floor Angels',
-                duration: '10-15 reps',
-                description: 'Lie on back with knees bent. Make snow angel motions keeping arms in contact with floor.',
-                image: 'floor-angels'
-            },
-            {
-                name: 'Foam Roller Chest Opener',
-                duration: '1-2 min',
-                description: 'Lie lengthwise on foam roller, arms out to sides with palms up. Let arms fall toward floor.',
-                image: 'foam-roller-chest'
-            }
+            { name: 'Corner Stretch', duration: '30-45 sec', description: 'Place both forearms on corner walls. Lean forward until stretch is felt across chest.', image: 'corner-stretch' },
+            { name: 'Floor Angels', duration: '10-15 reps', description: 'Lie on back with knees bent. Make snow angel motions keeping arms on floor.', image: 'floor-angels' },
+            { name: 'Foam Roller Chest Opener', duration: '1-2 min', description: 'Lie lengthwise on foam roller, arms out to sides with palms up.', image: 'foam-roller-chest' }
         ]
     },
     'biceps': {
@@ -254,24 +256,9 @@ const muscleData = {
             'Sleeping with arms bent tightly'
         ],
         stretches: [
-            {
-                name: 'Wall Bicep Stretch',
-                duration: '30 sec each arm',
-                description: 'Place palm on wall behind you, fingers pointing down. Slowly turn body away from wall.',
-                image: 'wall-bicep'
-            },
-            {
-                name: 'Seated Bicep Stretch',
-                duration: '20-30 sec',
-                description: 'Sit with knees bent, hands on floor behind you, fingers pointing back. Slide hips forward.',
-                image: 'seated-bicep'
-            },
-            {
-                name: 'Doorway Bicep Stretch',
-                duration: '30 sec each arm',
-                description: 'Grip doorframe at shoulder height, arm straight. Rotate body away while keeping grip.',
-                image: 'doorway-bicep'
-            }
+            { name: 'Wall Bicep Stretch', duration: '30 sec each arm', description: 'Place palm on wall behind you, fingers pointing down. Turn body away.', image: 'wall-bicep-stretch' },
+            { name: 'Seated Bicep Stretch', duration: '20-30 sec', description: 'Sit with knees bent, hands on floor behind you, fingers pointing back. Slide hips forward.', image: 'seated-bicep-stretch' },
+            { name: 'Doorway Bicep Stretch', duration: '30 sec each arm', description: 'Grip doorframe at shoulder height, arm straight. Rotate body away.', image: 'doorway-bicep-stretch' }
         ]
     },
     'triceps': {
@@ -285,24 +272,9 @@ const muscleData = {
             'Prolonged arm extension'
         ],
         stretches: [
-            {
-                name: 'Overhead Tricep Stretch',
-                duration: '30 sec each arm',
-                description: 'Raise right arm, bend elbow so hand reaches toward upper back. Use left hand to gently push elbow back.',
-                image: 'overhead-tricep'
-            },
-            {
-                name: 'Wall Tricep Stretch',
-                duration: '30 sec each arm',
-                description: 'Face wall, place elbow and forearm on wall above head. Lean into wall to deepen stretch.',
-                image: 'wall-tricep'
-            },
-            {
-                name: 'Towel Tricep Stretch',
-                duration: '20-30 sec each side',
-                description: 'Hold towel overhead with one hand, reach behind back with other hand to grab towel. Gently pull.',
-                image: 'towel-tricep'
-            }
+            { name: 'Overhead Tricep Stretch', duration: '30 sec each arm', description: 'Raise arm, bend elbow so hand reaches toward upper back. Push elbow back.', image: 'overhead-tricep-stretch' },
+            { name: 'Wall Tricep Stretch', duration: '30 sec each arm', description: 'Face wall, place elbow and forearm on wall above head. Lean in.', image: 'wall-tricep-stretch' },
+            { name: 'Towel Tricep Stretch', duration: '20-30 sec each side', description: 'Hold towel overhead, reach behind back with other hand to grab towel.', image: 'towel-tricep-stretch' }
         ]
     },
     'forearms': {
@@ -316,24 +288,9 @@ const muscleData = {
             'Gaming with controller or keyboard'
         ],
         stretches: [
-            {
-                name: 'Wrist Flexor Stretch',
-                duration: '30 sec each arm',
-                description: 'Extend arm forward, palm up. Use other hand to gently pull fingers toward floor.',
-                image: 'wrist-flexor'
-            },
-            {
-                name: 'Wrist Extensor Stretch',
-                duration: '30 sec each arm',
-                description: 'Extend arm forward, palm down. Use other hand to gently pull fingers toward body.',
-                image: 'wrist-extensor'
-            },
-            {
-                name: 'Prayer Stretch',
-                duration: '30 sec',
-                description: 'Press palms together in front of chest. Lower hands while keeping palms together.',
-                image: 'prayer-stretch'
-            }
+            { name: 'Wrist Flexor Stretch', duration: '30 sec each arm', description: 'Extend arm forward, palm up. Pull fingers toward floor.', image: 'wrist-flexor-stretch' },
+            { name: 'Wrist Extensor Stretch', duration: '30 sec each arm', description: 'Extend arm forward, palm down. Pull fingers toward body.', image: 'wrist-extensor-stretch' },
+            { name: 'Prayer Stretch', duration: '30 sec', description: 'Press palms together in front of chest. Lower hands while keeping palms together.', image: 'prayer-stretch' }
         ]
     },
     'abdominals': {
@@ -347,24 +304,9 @@ const muscleData = {
             'Digestive issues causing guarding'
         ],
         stretches: [
-            {
-                name: 'Cobra Pose',
-                duration: '20-30 sec',
-                description: 'Lie face down, hands under shoulders. Press up, lifting chest while keeping hips on floor.',
-                image: 'cobra-pose'
-            },
-            {
-                name: 'Cat-Cow Stretch',
-                duration: '10 cycles',
-                description: 'On hands and knees, alternate between arching back up (cat) and dropping belly down (cow).',
-                image: 'cat-cow'
-            },
-            {
-                name: 'Standing Side Bend',
-                duration: '20 sec each side',
-                description: 'Stand tall, reach right arm overhead and bend to left side. Keep hips stable.',
-                image: 'side-bend'
-            }
+            { name: 'Cobra Pose', duration: '20-30 sec', description: 'Lie face down, hands under shoulders. Press up, lifting chest while keeping hips on floor.', image: 'cobra-pose' },
+            { name: 'Cat-Cow Stretch', duration: '10 cycles', description: 'On hands and knees, alternate between arching back up (cat) and dropping belly (cow).', image: 'cat-cow-stretch' },
+            { name: 'Standing Side Bend', duration: '20 sec each side', description: 'Stand tall, reach arm overhead and bend to opposite side.', image: 'standing-side-bend' }
         ]
     },
     'hip-flexors': {
@@ -378,24 +320,9 @@ const muscleData = {
             'Weak glutes causing compensation'
         ],
         stretches: [
-            {
-                name: 'Kneeling Hip Flexor Stretch',
-                duration: '30-45 sec each side',
-                description: 'Kneel on one knee, other foot forward. Tuck pelvis under and shift weight forward.',
-                image: 'kneeling-hip-flexor'
-            },
-            {
-                name: 'Couch Stretch',
-                duration: '1-2 min each side',
-                description: 'Kneel facing away from couch, place back foot on cushion. Keep torso upright, squeeze glute.',
-                image: 'couch-stretch'
-            },
-            {
-                name: 'Low Lunge',
-                duration: '30-45 sec each side',
-                description: 'From lunge position, drop back knee to floor. Sink hips forward and down.',
-                image: 'low-lunge'
-            }
+            { name: 'Kneeling Hip Flexor Stretch', duration: '30-45 sec each side', description: 'Kneel on one knee, other foot forward. Tuck pelvis under and shift weight forward.', image: 'kneeling-hip-flexor' },
+            { name: 'Couch Stretch', duration: '1-2 min each side', description: 'Kneel facing away from couch, place back foot on cushion. Keep torso upright.', image: 'couch-stretch' },
+            { name: 'Low Lunge', duration: '30-45 sec each side', description: 'From lunge position, drop back knee to floor. Sink hips forward and down.', image: 'low-lunge' }
         ]
     },
     'quadriceps': {
@@ -409,24 +336,9 @@ const muscleData = {
             'Climbing stairs frequently'
         ],
         stretches: [
-            {
-                name: 'Standing Quad Stretch',
-                duration: '30 sec each leg',
-                description: 'Stand on one leg, pull other heel toward glute. Keep knees together and pelvis tucked.',
-                image: 'standing-quad'
-            },
-            {
-                name: 'Prone Quad Stretch',
-                duration: '30-45 sec each leg',
-                description: 'Lie face down, bend knee and grab ankle. Gently pull heel toward glute.',
-                image: 'prone-quad'
-            },
-            {
-                name: 'Kneeling Quad Stretch',
-                duration: '30 sec each leg',
-                description: 'In lunge position, grab back foot and pull toward glute for deeper hip flexor and quad stretch.',
-                image: 'kneeling-quad'
-            }
+            { name: 'Standing Quad Stretch', duration: '30 sec each leg', description: 'Stand on one leg, pull other heel toward glute. Keep knees together.', image: 'standing-quad-stretch' },
+            { name: 'Prone Quad Stretch', duration: '30-45 sec each leg', description: 'Lie face down, bend knee and grab ankle. Pull heel toward glute.', image: 'prone-quad-stretch' },
+            { name: 'Kneeling Quad Stretch', duration: '30 sec each leg', description: 'In lunge position, grab back foot and pull toward glute.', image: 'kneeling-quad-stretch' }
         ]
     },
     'shins': {
@@ -440,24 +352,9 @@ const muscleData = {
             'Tight calf muscles'
         ],
         stretches: [
-            {
-                name: 'Kneeling Shin Stretch',
-                duration: '30 sec',
-                description: 'Kneel with tops of feet flat on floor, toes pointing back. Gently sit back on heels.',
-                image: 'kneeling-shin'
-            },
-            {
-                name: 'Toe Drag Stretch',
-                duration: '20 sec each side',
-                description: 'Stand and place top of one foot on floor behind you. Gently press down to stretch shin.',
-                image: 'toe-drag'
-            },
-            {
-                name: 'Heel Walking',
-                duration: '30 sec',
-                description: 'Walk on heels with toes pointed up. Strengthens and stretches shin muscles.',
-                image: 'heel-walk'
-            }
+            { name: 'Kneeling Shin Stretch', duration: '30 sec', description: 'Kneel with tops of feet flat on floor, toes pointing back. Sit back on heels.', image: 'kneeling-shin-stretch' },
+            { name: 'Toe Drag Stretch', duration: '20 sec each side', description: 'Stand and place top of one foot on floor behind you. Press down gently.', image: 'toe-drag-stretch' },
+            { name: 'Heel Walking', duration: '30 sec', description: 'Walk on heels with toes pointed up.', image: 'heel-walking' }
         ]
     },
     'upper-back': {
@@ -471,24 +368,9 @@ const muscleData = {
             'Slouching while sitting'
         ],
         stretches: [
-            {
-                name: 'Cat Stretch',
-                duration: '20 sec',
-                description: 'On hands and knees, round back toward ceiling while tucking chin. Spread shoulder blades.',
-                image: 'cat-stretch'
-            },
-            {
-                name: 'Seated Twist',
-                duration: '30 sec each side',
-                description: 'Sit tall, cross right leg over left. Twist torso to right using left elbow against right knee.',
-                image: 'seated-twist'
-            },
-            {
-                name: 'Hands Clasped Forward',
-                duration: '20-30 sec',
-                description: 'Clasp hands in front, push palms away while rounding upper back. Feel stretch between shoulder blades.',
-                image: 'hands-forward'
-            }
+            { name: 'Cat Stretch', duration: '20 sec', description: 'On hands and knees, round back toward ceiling while tucking chin.', image: 'cat-stretch' },
+            { name: 'Seated Twist', duration: '30 sec each side', description: 'Sit tall, cross right leg over left. Twist torso using elbow against knee.', image: 'seated-twist' },
+            { name: 'Hands Clasped Forward', duration: '20-30 sec', description: 'Clasp hands in front, push palms away while rounding upper back.', image: 'hands-clasped-forward' }
         ]
     },
     'mid-back': {
@@ -502,24 +384,9 @@ const muscleData = {
             'Stress and shallow breathing'
         ],
         stretches: [
-            {
-                name: 'Thoracic Extension',
-                duration: '30 sec per spot',
-                description: 'Place foam roller under mid-back. Support head, extend over roller. Move to different spots.',
-                image: 'thoracic-extension'
-            },
-            {
-                name: 'Open Book Stretch',
-                duration: '30 sec each side',
-                description: 'Lie on side with knees bent. Rotate top arm and upper body to open toward ceiling.',
-                image: 'open-book'
-            },
-            {
-                name: 'Child\'s Pose Reach',
-                duration: '30-45 sec',
-                description: 'Kneel and sit back on heels, stretch arms forward. Walk hands to one side for side stretch.',
-                image: 'childs-pose'
-            }
+            { name: 'Thoracic Extension', duration: '30 sec per spot', description: 'Place foam roller under mid-back. Support head, extend over roller.', image: 'thoracic-extension' },
+            { name: 'Open Book Stretch', duration: '30 sec each side', description: 'Lie on side with knees bent. Rotate top arm and upper body to open.', image: 'open-book-stretch' },
+            { name: 'Child\'s Pose', duration: '30-45 sec', description: 'Kneel and sit back on heels, stretch arms forward on floor.', image: 'childs-pose' }
         ]
     },
     'lower-back': {
@@ -533,24 +400,9 @@ const muscleData = {
             'Standing with swayback posture'
         ],
         stretches: [
-            {
-                name: 'Knee-to-Chest Stretch',
-                duration: '30-45 sec',
-                description: 'Lie on back, pull one or both knees toward chest. Hold behind thighs.',
-                image: 'knee-to-chest'
-            },
-            {
-                name: 'Child\'s Pose',
-                duration: '1-2 min',
-                description: 'Kneel and sit back on heels, fold forward with arms extended. Relax completely.',
-                image: 'childs-pose'
-            },
-            {
-                name: 'Supine Twist',
-                duration: '30-45 sec each side',
-                description: 'Lie on back, bring knees to chest then let them fall to one side. Keep shoulders flat.',
-                image: 'supine-twist'
-            }
+            { name: 'Knee-to-Chest Stretch', duration: '30-45 sec', description: 'Lie on back, pull one or both knees toward chest.', image: 'knee-to-chest' },
+            { name: 'Child\'s Pose', duration: '1-2 min', description: 'Kneel and sit back on heels, fold forward with arms extended.', image: 'childs-pose' },
+            { name: 'Supine Twist', duration: '30-45 sec each side', description: 'Lie on back, bring knees to chest then let them fall to one side.', image: 'supine-twist' }
         ]
     },
     'glutes': {
@@ -564,24 +416,9 @@ const muscleData = {
             'Weak hip stabilizers'
         ],
         stretches: [
-            {
-                name: 'Pigeon Pose',
-                duration: '1-2 min each side',
-                description: 'From hands and knees, bring right knee forward behind right wrist. Extend left leg back.',
-                image: 'pigeon-pose'
-            },
-            {
-                name: 'Figure-4 Stretch',
-                duration: '30-45 sec each side',
-                description: 'Lie on back, cross right ankle over left knee. Pull left thigh toward chest.',
-                image: 'figure-four'
-            },
-            {
-                name: 'Seated Piriformis Stretch',
-                duration: '30 sec each side',
-                description: 'Sit in chair, cross ankle over opposite knee. Lean forward with straight back.',
-                image: 'seated-piriformis'
-            }
+            { name: 'Pigeon Pose', duration: '1-2 min each side', description: 'From hands and knees, bring right knee forward behind right wrist. Extend left leg back.', image: 'pigeon-pose' },
+            { name: 'Figure-4 Stretch', duration: '30-45 sec each side', description: 'Lie on back, cross right ankle over left knee. Pull left thigh toward chest.', image: 'figure-four-stretch' },
+            { name: 'Seated Piriformis Stretch', duration: '30 sec each side', description: 'Sit in chair, cross ankle over opposite knee. Lean forward.', image: 'seated-piriformis-stretch' }
         ]
     },
     'hamstrings': {
@@ -595,24 +432,9 @@ const muscleData = {
             'Cycling'
         ],
         stretches: [
-            {
-                name: 'Standing Hamstring Stretch',
-                duration: '30-45 sec each leg',
-                description: 'Place heel on low surface, keep leg straight. Hinge forward at hips with flat back.',
-                image: 'standing-hamstring'
-            },
-            {
-                name: 'Lying Hamstring Stretch',
-                duration: '30-45 sec each leg',
-                description: 'Lie on back, raise one leg and hold behind thigh. Keep leg as straight as possible.',
-                image: 'lying-hamstring'
-            },
-            {
-                name: 'Seated Forward Fold',
-                duration: '30-45 sec',
-                description: 'Sit with legs extended, hinge forward at hips reaching toward toes. Keep back flat.',
-                image: 'forward-fold'
-            }
+            { name: 'Standing Hamstring Stretch', duration: '30-45 sec each leg', description: 'Place heel on low surface, keep leg straight. Hinge forward at hips.', image: 'standing-hamstring-stretch' },
+            { name: 'Lying Hamstring Stretch', duration: '30-45 sec each leg', description: 'Lie on back, raise one leg and hold behind thigh.', image: 'lying-hamstring-stretch' },
+            { name: 'Seated Forward Fold', duration: '30-45 sec', description: 'Sit with legs extended, hinge forward reaching toward toes.', image: 'seated-forward-fold' }
         ]
     },
     'calves': {
@@ -626,24 +448,9 @@ const muscleData = {
             'Dehydration'
         ],
         stretches: [
-            {
-                name: 'Wall Calf Stretch',
-                duration: '30 sec each leg',
-                description: 'Face wall, step one foot back, keep heel down and leg straight. Lean into wall.',
-                image: 'wall-calf'
-            },
-            {
-                name: 'Soleus Stretch',
-                duration: '30 sec each leg',
-                description: 'Same as wall calf stretch but bend back knee slightly. Targets deeper soleus muscle.',
-                image: 'soleus-stretch'
-            },
-            {
-                name: 'Step Stretch',
-                duration: '30-45 sec each leg',
-                description: 'Stand on step with heel hanging off edge. Let heel drop below step level.',
-                image: 'step-stretch'
-            }
+            { name: 'Wall Calf Stretch', duration: '30 sec each leg', description: 'Face wall, step one foot back, keep heel down and leg straight. Lean into wall.', image: 'wall-calf-stretch' },
+            { name: 'Soleus Stretch', duration: '30 sec each leg', description: 'Same as wall calf stretch but bend back knee slightly.', image: 'soleus-stretch' },
+            { name: 'Step Stretch', duration: '30-45 sec each leg', description: 'Stand on step with heel hanging off edge. Let heel drop below step.', image: 'step-calf-stretch' }
         ]
     }
 };
@@ -652,39 +459,78 @@ const muscleData = {
 let currentView = 'front';
 let selectedMuscle = null;
 
-// DOM Elements
-const frontBtn = document.getElementById('frontBtn');
-const backBtn = document.getElementById('backBtn');
-const frontView = document.getElementById('frontView');
-const backView = document.getElementById('backView');
-const infoPanel = document.getElementById('infoPanel');
+// DOM Elements (assigned on init)
+let frontBtn, backBtn, frontView, backView, infoPanel;
 
-// Toggle between front and back view
-frontBtn.addEventListener('click', () => {
-    if (currentView !== 'front') {
-        currentView = 'front';
-        frontView.classList.remove('hidden');
-        backView.classList.add('hidden');
-        frontBtn.classList.add('active');
-        backBtn.classList.remove('active');
-        clearSelection();
-        showEmptyPanel();
+/**
+ * Initialize UI bindings once DOM is ready.
+ * Uses event delegation so SVG polygons always work.
+ */
+function initUI() {
+    frontBtn = document.getElementById('frontBtn');
+    backBtn = document.getElementById('backBtn');
+    frontView = document.getElementById('frontView');
+    backView = document.getElementById('backView');
+    infoPanel = document.getElementById('infoPanel');
+
+    if (!frontBtn || !backBtn || !frontView || !backView || !infoPanel) {
+        console.error('Stretch Helper init failed: missing required DOM elements.');
+        return;
     }
-});
 
-backBtn.addEventListener('click', () => {
-    if (currentView !== 'back') {
-        currentView = 'back';
-        backView.classList.remove('hidden');
-        frontView.classList.add('hidden');
-        backBtn.classList.add('active');
-        frontBtn.classList.remove('active');
-        clearSelection();
-        showEmptyPanel();
-    }
-});
+    // Toggle between front and back view
+    frontBtn.addEventListener('click', () => {
+        if (currentView !== 'front') {
+            currentView = 'front';
+            frontBtn.classList.add('active');
+            backBtn.classList.remove('active');
+            frontView.classList.remove('hidden');
+            backView.classList.add('hidden');
+            clearSelection();
+            resetInfoPanel();
+        }
+    });
 
-// Clear all muscle selections
+    backBtn.addEventListener('click', () => {
+        if (currentView !== 'back') {
+            currentView = 'back';
+            backBtn.classList.add('active');
+            frontBtn.classList.remove('active');
+            backView.classList.remove('hidden');
+            frontView.classList.add('hidden');
+            clearSelection();
+            resetInfoPanel();
+        }
+    });
+
+    // Make SVG regions keyboard-focusable (optional)
+    document.querySelectorAll('.muscle-group').forEach(el => {
+        if (!el.getAttribute('tabindex')) el.setAttribute('tabindex', '0');
+        if (!el.getAttribute('role')) el.setAttribute('role', 'button');
+        if (!el.getAttribute('aria-label') && el.dataset?.muscle) {
+            el.setAttribute('aria-label', el.dataset.muscle);
+        }
+    });
+
+    // Global delegated handlers for SVG regions
+    document.addEventListener('click', handleMuscleClick);
+    document.addEventListener('keydown', (e) => {
+        const isActivationKey = (e.key === 'Enter' || e.key === ' ');
+        if (!isActivationKey) return;
+        const target = e.target && e.target.closest ? e.target.closest('.muscle-group') : null;
+        if (!target) return;
+        e.preventDefault();
+        handleMuscleClick({ target });
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUI);
+} else {
+    initUI();
+}
+
+
 function clearSelection() {
     document.querySelectorAll('.muscle-group.selected').forEach(el => {
         el.classList.remove('selected');
@@ -703,13 +549,15 @@ function showEmptyPanel() {
     infoPanel.classList.add('empty');
 }
 
-// Get stretch image HTML
-function getStretchImageHTML(imageKey) {
-    const url = stretchImageUrls[imageKey];
-    if (url) {
-        return `<img src="${url}" alt="Stretch demonstration" loading="lazy">`;
-    }
-    return `<div style="padding: 2rem; text-align: center; color: #999;">Image not available</div>`;
+// Get stretch image HTML - uses local image or placeholder
+function getStretchImageHTML(imageId, stretchName) {
+    const imagePath = `${STRETCH_IMAGE_PATH}${imageId}.jpg`;
+
+    return `
+        <img src="${imagePath}"
+             alt="${stretchName}"
+             onerror="this.parentElement.innerHTML='<div class=\\'stretch-placeholder\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.5\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><circle cx=\\'8.5\\' cy=\\'8.5\\' r=\\'1.5\\'/><path d=\\'m21 15-5-5L5 21\\'/></svg><span>${imageId}.jpg</span></div>'">
+    `;
 }
 
 // Display muscle information
@@ -722,7 +570,7 @@ function showMuscleInfo(muscleId) {
     const stretchesHTML = data.stretches.map(s => `
         <div class="stretch-card">
             <div class="stretch-image">
-                ${getStretchImageHTML(s.image)}
+                ${getStretchImageHTML(s.image, s.name)}
             </div>
             <div class="stretch-content">
                 <h4>${s.name}</h4>
@@ -788,7 +636,7 @@ function handleMuscleClick(e) {
     // Clear previous selection
     clearSelection();
 
-    // Select all muscle groups with same data-muscle value (for paired muscles)
+    // Select all muscle groups with same data-muscle value
     document.querySelectorAll(`[data-muscle="${muscleId}"]`).forEach(el => {
         el.classList.add('selected');
     });
