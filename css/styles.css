@@ -343,6 +343,68 @@ header p {
     margin-top: 0.8rem;
 }
 
+/* Cause Emojis */
+.cause-emoji {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Strengthening Exercises Section */
+.info-section h3 .icon.exercise-icon {
+    background: #3498db;
+}
+
+.exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.exercise-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    background: #f0f7ff;
+    border: 2px solid #d4e6f9;
+    border-radius: 12px;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.exercise-link:hover {
+    background: #dbeeff;
+    border-color: #3498db;
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
+}
+
+.exercise-play-icon {
+    width: 28px;
+    height: 28px;
+    background: #ff0000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.exercise-play-icon svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+.exercise-arrow {
+    margin-left: auto;
+    color: #3498db;
+    font-size: 1.1rem;
+}
+
 /* Scrollbar styling */
 .info-panel::-webkit-scrollbar {
     width: 8px;
