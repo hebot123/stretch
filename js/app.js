@@ -1,6 +1,49 @@
 // Stretch images - place your images in images/stretches/ folder
-// The app will look for: images/stretches/{image-id}.png
+// The app will look for: images/stretches/{image-id}.jpg
 const STRETCH_IMAGE_PATH = 'images/stretches/';
+
+// Emoji mapping for common cause categories
+function getCauseEmoji(cause) {
+    const c = cause.toLowerCase();
+    if (c.includes('screen') || c.includes('computer') || c.includes('desk') || c.includes('ergonomic') || c.includes('laptop')) return '💻';
+    if (c.includes('phone')) return '📱';
+    if (c.includes('sleep') || c.includes('fetal')) return '😴';
+    if (c.includes('stress') || c.includes('anxiety') || c.includes('tension holding') || c.includes('protective')) return '😰';
+    if (c.includes('bag') || c.includes('backpack') || c.includes('carrying') || c.includes('load')) return '🎒';
+    if (c.includes('sitting') || c.includes('prolonged sit') || c.includes('chair')) return '🪑';
+    if (c.includes('running') || c.includes('sprint') || c.includes('mileage') || c.includes('stride') || c.includes('run ')) return '🏃';
+    if (c.includes('cycling') || c.includes('bike')) return '🚴';
+    if (c.includes('lifting') || c.includes('exercise') || c.includes('workout') || c.includes('squat') || c.includes('lunge') || c.includes('push') || c.includes('dip') || c.includes('curl') || c.includes('bench') || c.includes('press')) return '🏋️';
+    if (c.includes('high heel')) return '👠';
+    if (c.includes('dehydration')) return '💧';
+    if (c.includes('cold')) return '🥶';
+    if (c.includes('posture') || c.includes('slouch') || c.includes('hunch') || c.includes('rounded') || c.includes('forward head') || c.includes('swayback') || c.includes('leaning')) return '🧘';
+    if (c.includes('repetitive') || c.includes('overuse')) return '🔄';
+    if (c.includes('stair') || c.includes('climb') || c.includes('hill') || c.includes('downhill')) return '⛰️';
+    if (c.includes('standing')) return '🧍';
+    if (c.includes('driving')) return '🚗';
+    if (c.includes('swimming') || c.includes('backstroke')) return '🏊';
+    if (c.includes('throwing')) return '⚾';
+    if (c.includes('gaming') || c.includes('controller')) return '🎮';
+    if (c.includes('instrument') || c.includes('music')) return '🎵';
+    if (c.includes('typing') || c.includes('mouse') || c.includes('keyboard') || c.includes('rsi')) return '⌨️';
+    if (c.includes('grip')) return '✊';
+    if (c.includes('breath')) return '🫁';
+    if (c.includes('shoe') || c.includes('footwear')) return '👟';
+    if (c.includes('walk')) return '🚶';
+    if (c.includes('jump')) return '🦘';
+    if (c.includes('reaching') || c.includes('overhead')) return '🤸';
+    if (c.includes('digestive')) return '🤢';
+    if (c.includes('weak') || c.includes('poor core') || c.includes('stabilizer')) return '⚠️';
+    if (c.includes('recovery') || c.includes('too little')) return '⏰';
+    if (c.includes('surface') || c.includes('road') || c.includes('cambered') || c.includes('uneven')) return '🛤️';
+    if (c.includes('stiff') || c.includes('mobility') || c.includes('limited')) return '🦶';
+    if (c.includes('increase') || c.includes('sudden')) return '📈';
+    if (c.includes('narrow') || c.includes('overstriding')) return '👣';
+    if (c.includes('tight')) return '🔗';
+    if (c.includes('manual') || c.includes('tool use') || c.includes('labor')) return '🔧';
+    return '•';
+}
 
 // Muscle data with causes and stretches
 const muscleData = {
@@ -455,6 +498,143 @@ const muscleData = {
     }
 };
 
+// Strengthening exercises with YouTube video links
+const exerciseData = {
+    'neck-front': [
+        { name: 'Deep Neck Flexor Training', youtube: 'https://www.youtube.com/results?search_query=deep+neck+flexor+strengthening+exercise' },
+        { name: 'Neck Isometric Exercises', youtube: 'https://www.youtube.com/results?search_query=neck+isometric+strengthening+exercises' }
+    ],
+    'trapezius': [
+        { name: 'Face Pulls', youtube: 'https://www.youtube.com/results?search_query=face+pulls+proper+form' },
+        { name: 'Band Pull-Aparts', youtube: 'https://www.youtube.com/results?search_query=band+pull+aparts+upper+back' },
+        { name: 'Dumbbell Shrugs', youtube: 'https://www.youtube.com/results?search_query=dumbbell+shrugs+proper+form' }
+    ],
+    'upper-traps': [
+        { name: 'Face Pulls', youtube: 'https://www.youtube.com/results?search_query=face+pulls+proper+form' },
+        { name: 'Dumbbell Shrugs', youtube: 'https://www.youtube.com/results?search_query=dumbbell+shrugs+proper+form' }
+    ],
+    'levator-scapulae': [
+        { name: 'Chin Tuck Progressions', youtube: 'https://www.youtube.com/results?search_query=chin+tuck+progression+strengthening' },
+        { name: 'Neck Isometric Holds', youtube: 'https://www.youtube.com/results?search_query=neck+isometric+strengthening' }
+    ],
+    'rhomboids': [
+        { name: 'Seated Cable Row', youtube: 'https://www.youtube.com/results?search_query=seated+cable+row+proper+form' },
+        { name: 'Band Pull-Aparts', youtube: 'https://www.youtube.com/results?search_query=band+pull+aparts+rhomboids' },
+        { name: 'Prone Y-T-W Raises', youtube: 'https://www.youtube.com/results?search_query=prone+Y+T+W+raises+upper+back' }
+    ],
+    'lats': [
+        { name: 'Lat Pulldown', youtube: 'https://www.youtube.com/results?search_query=lat+pulldown+proper+form' },
+        { name: 'Pull-Ups / Assisted Pull-Ups', youtube: 'https://www.youtube.com/results?search_query=pull+up+progression+beginners' },
+        { name: 'Single Arm Dumbbell Row', youtube: 'https://www.youtube.com/results?search_query=single+arm+dumbbell+row+form' }
+    ],
+    'thoracic-erectors': [
+        { name: 'Prone Back Extensions', youtube: 'https://www.youtube.com/results?search_query=prone+back+extension+exercise' },
+        { name: 'Bird Dog', youtube: 'https://www.youtube.com/results?search_query=bird+dog+exercise+proper+form' }
+    ],
+    'ql': [
+        { name: 'Side Plank', youtube: 'https://www.youtube.com/results?search_query=side+plank+proper+form+progressions' },
+        { name: 'Suitcase Carry', youtube: 'https://www.youtube.com/results?search_query=suitcase+carry+exercise+form' }
+    ],
+    'lumbar-erectors': [
+        { name: 'Bird Dog', youtube: 'https://www.youtube.com/results?search_query=bird+dog+exercise+proper+form' },
+        { name: 'Superman Hold', youtube: 'https://www.youtube.com/results?search_query=superman+exercise+lower+back' },
+        { name: 'Glute Bridge', youtube: 'https://www.youtube.com/results?search_query=glute+bridge+proper+form' }
+    ],
+    'glute-medius': [
+        { name: 'Clamshells', youtube: 'https://www.youtube.com/results?search_query=clamshell+exercise+glute+medius' },
+        { name: 'Side-Lying Leg Raise', youtube: 'https://www.youtube.com/results?search_query=side+lying+leg+raise+hip+abduction' },
+        { name: 'Banded Lateral Walks', youtube: 'https://www.youtube.com/results?search_query=banded+lateral+walks+glute+medius' }
+    ],
+    'it-band': [
+        { name: 'Side-Lying Leg Raise', youtube: 'https://www.youtube.com/results?search_query=side+lying+leg+raise+hip' },
+        { name: 'Clamshells', youtube: 'https://www.youtube.com/results?search_query=clamshell+exercise+hip+stability' },
+        { name: 'Single Leg Squat', youtube: 'https://www.youtube.com/results?search_query=single+leg+squat+progression' }
+    ],
+    'achilles': [
+        { name: 'Eccentric Heel Drops', youtube: 'https://www.youtube.com/results?search_query=eccentric+heel+drops+achilles+tendon' },
+        { name: 'Single Leg Calf Raises', youtube: 'https://www.youtube.com/results?search_query=single+leg+calf+raise+achilles+strengthening' }
+    ],
+    'shoulder-front': [
+        { name: 'External Rotation with Band', youtube: 'https://www.youtube.com/results?search_query=external+rotation+resistance+band+shoulder' },
+        { name: 'Face Pulls', youtube: 'https://www.youtube.com/results?search_query=face+pulls+shoulder+health' },
+        { name: 'Reverse Fly', youtube: 'https://www.youtube.com/results?search_query=reverse+fly+rear+delt+exercise' }
+    ],
+    'shoulder-back': [
+        { name: 'Rear Delt Fly', youtube: 'https://www.youtube.com/results?search_query=rear+delt+fly+dumbbell+form' },
+        { name: 'Band Pull-Aparts', youtube: 'https://www.youtube.com/results?search_query=band+pull+aparts+posterior+deltoid' },
+        { name: 'Face Pulls', youtube: 'https://www.youtube.com/results?search_query=face+pulls+cable+form' }
+    ],
+    'chest': [
+        { name: 'Push-Ups', youtube: 'https://www.youtube.com/results?search_query=push+up+proper+form+progression' },
+        { name: 'Dumbbell Chest Press', youtube: 'https://www.youtube.com/results?search_query=dumbbell+chest+press+proper+form' },
+        { name: 'Cable Chest Fly', youtube: 'https://www.youtube.com/results?search_query=cable+chest+fly+form' }
+    ],
+    'biceps': [
+        { name: 'Dumbbell Bicep Curls', youtube: 'https://www.youtube.com/results?search_query=dumbbell+bicep+curl+proper+form' },
+        { name: 'Hammer Curls', youtube: 'https://www.youtube.com/results?search_query=hammer+curls+proper+form' },
+        { name: 'Incline Dumbbell Curl', youtube: 'https://www.youtube.com/results?search_query=incline+dumbbell+curl+form' }
+    ],
+    'triceps': [
+        { name: 'Overhead Tricep Extension', youtube: 'https://www.youtube.com/results?search_query=overhead+tricep+extension+dumbbell' },
+        { name: 'Diamond Push-Ups', youtube: 'https://www.youtube.com/results?search_query=diamond+push+ups+tricep' },
+        { name: 'Tricep Cable Pushdown', youtube: 'https://www.youtube.com/results?search_query=tricep+cable+pushdown+proper+form' }
+    ],
+    'forearms': [
+        { name: 'Wrist Curls', youtube: 'https://www.youtube.com/results?search_query=wrist+curls+forearm+strengthening' },
+        { name: 'Reverse Wrist Curls', youtube: 'https://www.youtube.com/results?search_query=reverse+wrist+curls+forearm' },
+        { name: 'Grip Strengthening', youtube: 'https://www.youtube.com/results?search_query=grip+strength+exercises+forearm' }
+    ],
+    'abdominals': [
+        { name: 'Dead Bug', youtube: 'https://www.youtube.com/results?search_query=dead+bug+exercise+proper+form' },
+        { name: 'Plank Variations', youtube: 'https://www.youtube.com/results?search_query=plank+exercise+variations+core' },
+        { name: 'Pallof Press', youtube: 'https://www.youtube.com/results?search_query=pallof+press+anti+rotation+core' }
+    ],
+    'hip-flexors': [
+        { name: 'Psoas March', youtube: 'https://www.youtube.com/results?search_query=psoas+march+hip+flexor+strengthening' },
+        { name: 'Banded Hip Flexion', youtube: 'https://www.youtube.com/results?search_query=banded+hip+flexion+exercise' },
+        { name: 'Hanging Leg Raises', youtube: 'https://www.youtube.com/results?search_query=hanging+leg+raise+proper+form' }
+    ],
+    'quadriceps': [
+        { name: 'Wall Sits', youtube: 'https://www.youtube.com/results?search_query=wall+sit+exercise+proper+form' },
+        { name: 'Bulgarian Split Squats', youtube: 'https://www.youtube.com/results?search_query=bulgarian+split+squat+proper+form' },
+        { name: 'Step-Ups', youtube: 'https://www.youtube.com/results?search_query=step+ups+exercise+quadriceps' }
+    ],
+    'shins': [
+        { name: 'Tibialis Raises', youtube: 'https://www.youtube.com/results?search_query=tibialis+raise+shin+strengthening' },
+        { name: 'Toe Walks', youtube: 'https://www.youtube.com/results?search_query=toe+walks+shin+strengthening+exercise' }
+    ],
+    'upper-back': [
+        { name: 'Prone Y-T-W Raises', youtube: 'https://www.youtube.com/results?search_query=prone+Y+T+W+raises+upper+back' },
+        { name: 'Face Pulls', youtube: 'https://www.youtube.com/results?search_query=face+pulls+upper+back' },
+        { name: 'Bent-Over Row', youtube: 'https://www.youtube.com/results?search_query=bent+over+row+proper+form' }
+    ],
+    'mid-back': [
+        { name: 'Seated Cable Row', youtube: 'https://www.youtube.com/results?search_query=seated+cable+row+mid+back' },
+        { name: 'Thoracic Rotation Exercises', youtube: 'https://www.youtube.com/results?search_query=thoracic+rotation+mobility+exercises' },
+        { name: 'Face Pulls', youtube: 'https://www.youtube.com/results?search_query=face+pulls+mid+back' }
+    ],
+    'lower-back': [
+        { name: 'Bird Dog', youtube: 'https://www.youtube.com/results?search_query=bird+dog+exercise+lower+back' },
+        { name: 'Glute Bridge', youtube: 'https://www.youtube.com/results?search_query=glute+bridge+lower+back+strengthening' },
+        { name: 'Superman Hold', youtube: 'https://www.youtube.com/results?search_query=superman+exercise+lower+back+form' }
+    ],
+    'glutes': [
+        { name: 'Hip Thrusts', youtube: 'https://www.youtube.com/results?search_query=hip+thrust+proper+form' },
+        { name: 'Glute Bridge', youtube: 'https://www.youtube.com/results?search_query=glute+bridge+proper+form' },
+        { name: 'Clamshells', youtube: 'https://www.youtube.com/results?search_query=clamshell+exercise+glute+activation' }
+    ],
+    'hamstrings': [
+        { name: 'Romanian Deadlift', youtube: 'https://www.youtube.com/results?search_query=romanian+deadlift+proper+form' },
+        { name: 'Nordic Hamstring Curl', youtube: 'https://www.youtube.com/results?search_query=nordic+hamstring+curl+progression' },
+        { name: 'Single Leg Glute Bridge', youtube: 'https://www.youtube.com/results?search_query=single+leg+glute+bridge+hamstring' }
+    ],
+    'calves': [
+        { name: 'Standing Calf Raises', youtube: 'https://www.youtube.com/results?search_query=standing+calf+raise+proper+form' },
+        { name: 'Single Leg Calf Raises', youtube: 'https://www.youtube.com/results?search_query=single+leg+calf+raise+exercise' },
+        { name: 'Seated Calf Raises', youtube: 'https://www.youtube.com/results?search_query=seated+calf+raise+soleus' }
+    ]
+};
+
 // State
 let currentView = 'front';
 let selectedMuscle = null;
@@ -580,7 +760,7 @@ function showMuscleInfo(muscleId) {
         </div>
     `).join('');
 
-    const causesHTML = data.causes.map(c => `<div class="cause-item">${c}</div>`).join('');
+    const causesHTML = data.causes.map(c => `<div class="cause-item"><span class="cause-emoji">${getCauseEmoji(c)}</span>${c}</div>`).join('');
 
     infoPanel.innerHTML = `
         <div class="muscle-header">
@@ -623,6 +803,33 @@ function showMuscleInfo(muscleId) {
             </h3>
             <div class="stretches-grid">${stretchesHTML}</div>
         </div>
+
+        ${(() => {
+            const exercises = exerciseData[muscleId] || [];
+            if (exercises.length === 0) return '';
+            const exercisesHTML = exercises.map(e => `
+                <a href="${e.youtube}" target="_blank" rel="noopener noreferrer" class="exercise-link">
+                    <span class="exercise-play-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+                    </span>
+                    ${e.name}
+                    <span class="exercise-arrow">&rarr;</span>
+                </a>
+            `).join('');
+            return `
+                <div class="info-section">
+                    <h3>
+                        <span class="icon exercise-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M6.5 6.5v11M17.5 6.5v11M2 9v6M22 9v6M6.5 12h11M2 12h4.5M17.5 12H22"/>
+                            </svg>
+                        </span>
+                        Strengthening Exercises
+                    </h3>
+                    <div class="exercises-list">${exercisesHTML}</div>
+                </div>
+            `;
+        })()}
     `;
 }
 
