@@ -58,9 +58,9 @@ const muscleData = {
             'Holding phone between ear and shoulder'
         ],
         stretches: [
-            { name: 'Lateral Neck Stretch', duration: '30 sec each side', description: 'Sit tall, drop right ear toward right shoulder. Gently press with right hand for deeper stretch.', image: 'lateral-neck-stretch' },
-            { name: 'Chin Tuck', duration: '10 reps', description: 'Sit tall, pull chin straight back creating a "double chin". Hold 5 seconds, repeat.', image: 'chin-tuck' },
-            { name: 'SCM Stretch', duration: '20-30 sec each side', description: 'Turn head 45 degrees to one side, then tilt chin up. Feel stretch along front of neck.', image: 'scm-stretch' }
+            { name: 'Lateral Neck Stretch', duration: '30 sec each side', description: 'Sit tall. Gently bring ear toward shoulder until you feel a stretch along the side of the neck. Keep shoulders down; use the hand only for light pressure.', image: 'lateral-neck-stretch' },
+            { name: 'SCM Stretch', duration: '20-30 sec each side', description: 'Turn head 45° away from the tight side, then tilt head back slightly and look up. You should feel the stretch along the front/side of the neck.', image: 'scm-stretch' },
+            { name: 'Scalene Stretch', duration: '20-30 sec each side', description: 'Gently tuck chin, tilt ear away from the tight side, and slightly rotate toward the tight side. Keep ribs down and shoulder relaxed to target the scalenes.', image: 'scalene-stretch' }
         ]
     },
     'trapezius': {
@@ -74,9 +74,9 @@ const muscleData = {
             'Extended phone or computer use'
         ],
         stretches: [
-            { name: 'Upper Trap Stretch', duration: '30 sec each side', description: 'Anchor right hand under chair. Tilt head left, bringing ear toward shoulder.', image: 'upper-trap-stretch' },
-            { name: 'Shoulder Shrugs', duration: '10 reps', description: 'Raise shoulders to ears, hold 5 seconds, then release completely.', image: 'shoulder-shrugs' },
-            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Look down toward armpit, gently pull head with hand.', image: 'levator-scap-stretch' }
+            { name: 'Upper Trap Stretch', duration: '30 sec each side', description: 'Sit tall and gently pull your head toward the opposite shoulder. Keep the stretching-side shoulder down and avoid shrugging.', image: 'upper-trap-stretch' },
+            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Turn head ~45° away, look into your armpit, and gently pull head forward/down. Keep shoulder relaxed to target the levator scapulae.', image: 'levator-scap-stretch' },
+            { name: 'Thread-the-Needle', duration: '30-45 sec each side', description: 'On hands and knees, slide one arm under the other and rotate your upper back. Breathe into the upper back/shoulder blade area to reduce upper-trap guarding.', image: 'thread-the-needle' }
         ]
     },
 
@@ -91,9 +91,9 @@ const muscleData = {
             'Cold weather hunching'
         ],
         stretches: [
-            { name: 'Upper Trap Stretch', duration: '30 sec each side', description: 'Anchor the hand on the painful side, gently tilt head away. Keep shoulder down.', image: 'upper-trap-stretch' },
-            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Look down toward armpit, gently pull head forward/diagonal.', image: 'levator-scap-stretch' },
-            { name: 'Wall Angels (Mobility)', duration: '8-10 reps', description: 'Back to wall, ribs down. Slide arms up/down to open chest and upper back.', image: 'wall-angels' }
+            { name: 'Upper Trap Stretch', duration: '30 sec each side', description: 'Sit tall and gently bring ear to shoulder. Keep stretching-side shoulder down and breathe slowly.', image: 'upper-trap-stretch' },
+            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Turn head away, look down toward armpit, gently pull head forward/down. Avoid shrugging.', image: 'levator-scap-stretch' },
+            { name: 'Chest Opener (Doorway)', duration: '30-45 sec', description: 'Forearms on a doorway at shoulder height, step through gently. Opening the chest can reduce upper-trap compensation from rounded shoulders.', image: 'doorway-chest-stretch' }
         ]
     },
     'levator-scapulae': {
@@ -107,9 +107,9 @@ const muscleData = {
             'Upper trap overuse'
         ],
         stretches: [
-            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Turn head 45° away, then look down. Gently pull head forward.', image: 'levator-scap-stretch' },
-            { name: 'Chin Tuck', duration: '10 reps', description: 'Slide chin straight back, hold 3-5 seconds. Don’t tilt head.', image: 'chin-tuck' },
-            { name: 'Thread-the-Needle', duration: '30 sec each side', description: 'On all fours, reach arm under and rotate upper back/neck gently.', image: 'thread-the-needle' }
+            { name: 'Levator Scapulae Stretch', duration: '30 sec each side', description: 'Turn head ~45° away, look into armpit, and gently pull head forward/down. Keep shoulder relaxed.', image: 'levator-scap-stretch' },
+            { name: 'Lateral Neck Stretch', duration: '30 sec each side', description: 'Gently bring ear to shoulder while keeping shoulders down. This complements levator stretching when neck is also tight.', image: 'lateral-neck-stretch' },
+            { name: 'Thread-the-Needle', duration: '30-45 sec each side', description: 'Rotate the thoracic spine while keeping hips stacked. Helps unload shoulder blade muscles that often share tension with levator.', image: 'thread-the-needle' }
         ]
     },
     'rhomboids': {
@@ -203,9 +203,9 @@ const muscleData = {
             'Too much sitting'
         ],
         stretches: [
-            { name: 'Figure-4 Stretch', duration: '30-45 sec each side', description: 'Cross ankle over opposite knee and pull in.', image: 'figure-four-stretch' },
-            { name: 'Pigeon Pose', duration: '60-90 sec each side', description: 'Front shin angled, back leg long; keep hips square.', image: 'pigeon-pose' },
-            { name: 'Standing Hip Hike (Activation)', duration: '10 reps each side', description: 'Stand on a step, drop and lift pelvis using the stance hip.', image: 'hip-hike' }
+            { name: 'Standing Cross-Over Hip Stretch', duration: '30-45 sec each side', description: 'Cross the outside leg behind the other, shift hips toward the crossed-behind side, and reach overhead away. You should feel the stretch along the outer hip.', image: 'standing-it-band-stretch' },
+            { name: 'Figure-4 Stretch', duration: '30-45 sec each side', description: 'On your back, cross ankle over opposite knee and pull thigh toward chest. If you feel more deep butt (piriformis), that’s normal—often overlaps with glute med tightness.', image: 'figure-four-stretch' },
+            { name: 'Supine Twist (Outer Hip Bias)', duration: '30-45 sec each side', description: 'Bring knees toward chest then let them fall to one side. Keep shoulders down and breathe into the outer hip/low-back side.', image: 'supine-twist' }
         ]
     },
     'it-band': {
@@ -235,9 +235,9 @@ const muscleData = {
             'Too little recovery between runs'
         ],
         stretches: [
-            { name: 'Soleus Stretch', duration: '30 sec each side', description: 'Wall calf stretch with back knee bent to target lower calf/Achilles.', image: 'soleus-stretch' },
-            { name: 'Step Calf Stretch', duration: '30-45 sec each side', description: 'Heel off step, lower slowly and hold. Don’t bounce.', image: 'step-calf-stretch' },
-            { name: 'Eccentric Heel Drops', duration: '2 x 10 each side', description: 'Rise with both feet, lower slowly on one. Classic Achilles rehab move.', image: 'eccentric-heel-drops' }
+            { name: 'Soleus Stretch', duration: '30 sec each side', description: 'In a lunge at the wall, bend both knees and keep heel down. You should feel the stretch lower in the calf near the Achilles.', image: 'soleus-stretch' },
+            { name: 'Step Calf Stretch', duration: '30 sec each side', description: 'Stand on a step with heel off the edge and lower slowly to a comfortable stretch. Hold without bouncing.', image: 'step-calf-stretch' },
+            { name: 'Wall Calf Stretch (Straight Knee)', duration: '30 sec each side', description: 'Hands on wall, back leg straight, heel down. This targets gastrocnemius, which can load the Achilles when tight.', image: 'wall-calf-stretch' }
         ]
     },
     'shoulder-front': {
@@ -283,9 +283,9 @@ const muscleData = {
             'Anxiety and protective posturing'
         ],
         stretches: [
-            { name: 'Corner Stretch', duration: '30-45 sec', description: 'Place both forearms on corner walls. Lean forward until stretch is felt across chest.', image: 'corner-stretch' },
-            { name: 'Floor Angels', duration: '10-15 reps', description: 'Lie on back with knees bent. Make snow angel motions keeping arms on floor.', image: 'floor-angels' },
-            { name: 'Foam Roller Chest Opener', duration: '1-2 min', description: 'Lie lengthwise on foam roller, arms out to sides with palms up.', image: 'foam-roller-chest' }
+            { name: 'Corner Stretch', duration: '30-45 sec', description: 'Forearms on wall/corner, step forward until you feel a stretch across the chest. Keep ribs down and neck relaxed.', image: 'corner-stretch' },
+            { name: 'Doorway Chest Stretch', duration: '30-45 sec', description: 'Forearm(s) on the doorway, step through gently. Adjust elbow height to bias upper vs mid chest.', image: 'doorway-chest-stretch' },
+            { name: 'Foam Roller Chest Opener', duration: '1-2 min', description: 'Lie lengthwise on a foam roller, arms out like a T or goalpost. Let the chest open while keeping ribs relaxed.', image: 'foam-roller-chest-opener' }
         ]
     },
     'biceps': {
@@ -449,8 +449,8 @@ const muscleData = {
         ]
     },
     'glutes': {
-        name: 'Gluteal Muscles',
-        location: 'Gluteus maximus, medius, and minimus',
+        name: 'Gluteus Maximus',
+        location: 'Main butt muscle (hip extension / power)',
         causes: [
             'Prolonged sitting',
             'Running and climbing',
@@ -741,8 +741,18 @@ function getStretchImageHTML(imageId, stretchName) {
 }
 
 // Display muscle information
+function normalizeMuscleId(muscleId) {
+    if (!muscleId) return muscleId;
+    if (muscleId === 'glute-max') return 'glutes';
+    if (muscleId.startsWith('glute-medius')) return 'glute-medius';
+    if (muscleId === 'lower-back') return 'lumbar-erectors';
+    if (muscleId.startsWith('ql-')) return 'ql';
+    return muscleId;
+}
+
 function showMuscleInfo(muscleId) {
-    const data = muscleData[muscleId];
+    const normalizedId = normalizeMuscleId(muscleId);
+    const data = muscleData[normalizedId];
     if (!data) return;
 
     infoPanel.classList.remove('empty');
@@ -805,7 +815,7 @@ function showMuscleInfo(muscleId) {
         </div>
 
         ${(() => {
-            const exercises = exerciseData[muscleId] || [];
+            const exercises = exerciseData[normalizedId] || [];
             if (exercises.length === 0) return '';
             const exercisesHTML = exercises.map(e => `
                 <a href="${e.youtube}" target="_blank" rel="noopener noreferrer" class="exercise-link">
