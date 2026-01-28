@@ -285,7 +285,7 @@ const muscleData = {
         stretches: [
             { name: 'Corner Stretch', duration: '30-45 sec', description: 'Forearms on wall/corner, step forward until you feel a stretch across the chest. Keep ribs down and neck relaxed.', image: 'corner-stretch' },
             { name: 'Doorway Chest Stretch', duration: '30-45 sec', description: 'Forearm(s) on the doorway, step through gently. Adjust elbow height to bias upper vs mid chest.', image: 'doorway-chest-stretch' },
-            { name: 'Foam Roller Chest Opener', duration: '1-2 min', description: 'Lie lengthwise on a foam roller, arms out like a T or goalpost. Let the chest open while keeping ribs relaxed.', image: 'foam-roller-chest-opener' }
+            { name: 'Foam Roller Chest Opener', duration: '1-2 min', description: 'Lie lengthwise on a foam roller, arms out like a T or goalpost. Let the chest open while keeping ribs relaxed.', image: 'foam-roller-chest' }
         ]
     },
     'biceps': {
